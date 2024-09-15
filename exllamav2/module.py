@@ -131,7 +131,7 @@ class ExLlamaV2Module:
                         tensor = tensor.T
                     return nn.Parameter(tensor, requires_grad = False), nn.Parameter(bias, requires_grad = False)
                 else:
-                    tensors = self.load_multi(key, ["weight"], cpu = cpu)
+                    tensors = self.load_multi(key, ["weight"])
                     tensor = tensors["weight"].half()
                     # if self.model.config.arch.orig_weights_transposed:
                     #     tensor = tensor.T
